@@ -276,20 +276,20 @@ function Hide(divID) {
 function Clear(div) {
   if(div.innerHTML.includes("loggingBar"))
       div.innerHTML = '    <div id="right">\
-        <a href="#" onclick="Hide(loggingBar);">X</a>...\
+        <a href="#" onclick="Hide(loggingBar);">[X]</a>...\
         <a href="#" onclick="Clear(loggingBar);">Clear</a>\
     </div>\
     <div id="left">\
-        Logging\
+        Loggings\
     </div>';
 
     if(div.innerHTML.includes("diffBar"))
     div.innerHTML = '    <div id="right">\
-      <a href="#" onclick="Hide(diffBar);">X</a>...\
+      <a href="#" onclick="Hide(diffBar);">[X]</a>...\
       <a href="#" onclick="Clear(diffBar);">Clear</a>\
   </div>\
   <div id="left">\
-      Diff\
+      Difference between the libraries\
   </div>';
 }
 
