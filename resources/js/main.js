@@ -83,6 +83,15 @@ function _loadScript(selectedIds) {
                   if(!$("#frameworksDiff").text().includes(value))
                     $("#frameworksDiff").append($(checkbox));
                 })
+                
+                // wrapping each function by the console timer:
+              try {
+                timeIt(eval("window[\"" + this.newVarPath + "\"]"));
+              }
+              catch (e) {
+                /* work in case there is an error */
+//                console.error("error wrapping functions by a timer: "+e.message);
+              }
             }
 
         };
@@ -122,7 +131,9 @@ window.onload = function () {
     console.log("Think of getting full advantage of Chrome 'console' object https://developers.google.com/web/tools/chrome-devtools/console/api");
     console.dir(console);
     var b = "color:#0F669D;font-weight:bold;";
+    var r = "color:#8B0000;font-weight:bold;";
     console.log('%cjquery script loaded! Version:' + $.fn.jquery, b);
+    console.log('%cLibraries loaded would be wrapped by a timer if possible! ie: some libraries loaded will be slightly modified!', r);
     //    Sentry.init({
     //        dsn: 'https://b20d3fb31f5247b0b3873400bb4a28cf@sentry.io/1840726'
     //    });
@@ -154,7 +165,6 @@ $(document).ready(function ($) {
         });
         var functions = [];
         selectedIds.map(function(lib, index){
-          debugger;
           if(index==0)
             functions.push("<b>"+lib+"</b><br>");
           else {
@@ -168,6 +178,49 @@ $(document).ready(function ($) {
         print(checkWords(strObj), undefined, "diffBar");
     });
 });
+
+function timeIt(Obj){
+  if(!Obj.name){
+    return;
+  }
+  var lib = Obj.name;
+  var functions = [],
+      strObj;
+  if (typeof Obj == 'string') {
+      console.log("not a library");
+  } else {
+      if ((typeof Obj.prototype) == 'object') {
+          functions = Object.getOwnPropertyNames(Obj).filter(function (p) {
+              return typeof Obj[p] === 'function';
+          });
+          functions.forEach(function(func){
+            var originalFunction = window[lib][func];
+            window[lib][func] = function myFunction(a, b, c) { /* #1 */
+              /* work before the function is called */
+              console.time(func);
+              try {
+                var returnValue = originalFunction.apply(this, arguments); /* #2 */
+                /* work after the function is called */
+                console.timeEnd(func);
+                return returnValue;
+              }
+              catch (e) {
+                /* work in case there is an error */
+                throw e;
+              }
+            }
+            for(var prop in originalFunction) { /* #3 */
+              if (originalFunction.hasOwnProperty(prop)) {
+                window[lib].myFunction[prop] = originalFunction[prop];
+              }
+            }
+          });
+      }
+      if ((typeof Obj.prototype) == undefined) {
+          console.info("not a library");
+      }
+  }
+}
 
 // <a href="#reduce">reduce</a>
 var docURLs = {
