@@ -17,3 +17,15 @@ add feature to enrich interaction from the console to the HTML page (beautify an
 On Glitch: 
 https://glitch.com/~positive-save
 You can point some error or improvement.
+
+## Docker Image
+
+This docker image simply serves the sites static content on port 80.
+
+### Build
+
+To build the image simply run `docker build -t IMAGE_NAME .`.
+
+### Run
+
+To start serving the website, run `docker run -d -p 8080:80 IMAGE_NAME .`. Now you can go to http://localhost:8080 and access Interactive Arrays!
