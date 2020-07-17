@@ -1,22 +1,27 @@
 # Interactive_Arrays
-JavaScript libraries testing and learning using browser developer tools
-There are plenty of posts that ask how to load Jquery, Underscore, Lodash... via console; Most offer the following handy snippet:
+
+### Purpose: 
+
+A JavaScript application to experiment JavaScript libraries. It is intuitive for users and tiny for follow collaborating developers. Users can test and learn using browser developer tools.
+
+There are plenty of posts that ask how to load Jquery, Underscore, Lodash... via console? Most offer the following handy snippet:
 
 `var s = document.createElement('script'); 
  s.type = 'text/javascript';
  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js';
  document.head.appendChild(s);`
 
-I just copied the snippet and made it easier to load a couple of libraries admitting the set-up version I set (normally latest stable).
-Another handy way, is to tell the library's name, the targeted version via URL in https://cdnjs.cloudflare.com/ , its initial variable (`_`, `jQuery` ...) and its path of version if known.
+I just copied the snippet and made it easier to load a couple of libraries in the same session.
 
-Todo:
-test and improve
-add feature to enrich interaction from the console to the HTML page (beautify and display console.dir for example)
+Another handy way is to tell the library's name, the targeted version via URL in https://cdnjs.cloudflare.com/ , its initial variable (`_`, `jQuery` ...) and its path of version if known, because JavaScript libraries are implemented very differently, there is much debugging to make it more intelligent and stable.
+
+### Todo (check open issues):
+
+1- Test and improve
+2- Add features to enrich interaction from the console with the HTML page (beautify and display console.dir for example)
 
 On Glitch: 
 https://glitch.com/~positive-save
-You can point some error or improvement.
 
 ## Docker Image
 
