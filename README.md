@@ -6,10 +6,15 @@ A JavaScript application to experiment JavaScript libraries. It is intuitive for
 
 There are plenty of posts that ask how to load Jquery, Underscore, Lodash... via console? Most offer the following handy snippet:
 
+
 `var s = document.createElement('script'); 
+
  s.type = 'text/javascript';
+ 
  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js';
+ 
  document.head.appendChild(s);`
+
 
 I just copied the snippet and made it easier to load a couple of libraries in the same session.
 
@@ -17,10 +22,12 @@ Another handy way is to tell the library's name, the targeted version via URL in
 
 ### Todo (check open issues):
 
-1- Test and improve
-2- Add features to enrich interaction from the console with the HTML page (beautify and display console.dir for example)
+   1- Test and improve
+   
+   2- Add features to enrich interaction from the console with the HTML page (beautify and display console.dir for example)
 
 On Glitch: 
+
 https://glitch.com/~positive-save
 
 ## Docker Image
