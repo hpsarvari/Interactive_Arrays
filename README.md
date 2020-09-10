@@ -30,7 +30,7 @@ Another handy way is to tell the library's name, the targeted version via URL in
 
 On Glitch: 
 
-https://glitch.com/~positive-save
+https://glitch.com/~interactive-arrays
 
 ## Docker Image
 
