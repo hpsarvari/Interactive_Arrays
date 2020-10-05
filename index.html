@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,6 +142,7 @@
             position: absolute;
             width: 1px;
         }
+	    
         b {
           color: #bada55;
           font-weight:bold;
@@ -151,6 +151,7 @@
           -o-transition:color .2s ease-in-out;
           transition:color .2s ease-in-out;
         }
+	    
         .highlight { color:rgba(207, 95, 205, 1);}
     </style>
     <meta name="Description" content="WYSIWYG JavaScript libraries loading using browser developer tools for testing and learning. Load Jquery, Underscore, Lodash and more in your browser console">
@@ -231,8 +232,7 @@
         <div class="ShowHide" id="diffBar" style="overflow-y:scroll; overflow-x:hidden; height:100px;">
             <div id="right">
                 <a href="javascript:void(0)" onclick="Hide(diffBar); return false;">[X]</a><br>
-                <a href="javascript:void(0)" onclick="Clear(diffBar); return false;">Clear</a>
-             
+		    <a href="javascript:void(0)" onclick="Clear(diffBar); return false;">Clear</a>
             </div>
             <div id="left">
                 Difference between the libraries
@@ -261,10 +261,9 @@
 <script src="vendors/stemmer.js"></script>
 <script src="vendors/devtools-detect-index.js"></script>
 
-
 <script type="module">
     // Check if it's open
-	// Check it's orientation, `undefined` if not open
+    // Check it's orientation, `undefined` if not open
     if(!window.devtools.isOpen){
         $('#error').show();
         $('#options').hide();
@@ -272,8 +271,8 @@
         $('#error').hide();
         $('#options').show();
     }
-	// Get notified when it's opened/closed or orientation changes
-	window.addEventListener('devtoolschange', event => {
+    // Get notified when it's opened/closed or orientation changes
+    window.addEventListener('devtoolschange', event => {
         if(!event.detail.isOpen){
             $('#error').show();
             $('#options').hide();
@@ -281,7 +280,7 @@
             $('#error').hide();
             $('#options').show();
         }
-	});
+    });
 </script>
 <script>
     var availableTags = [];
